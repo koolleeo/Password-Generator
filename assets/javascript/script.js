@@ -206,7 +206,17 @@ function generatePassword() {
              }
            }
         })
+        
+    //create empty password string
+    let password = '';
 
+    //generate a random password, to the specified character length
+    for (let j = 0; j < Number(passwordLength); j++) {
+        result = getRandom(characterArray);
+        password = password += result;
+    }
+    //return output for the function, so that the password can displayed on the app
+    return password;
 
     }
 
