@@ -133,6 +133,36 @@ function getPasswordOptions() {
       attempts++;
   } 
  
+    //push password options into array, unless 3 failed attemps to input valid password length
+
+    if (attempts ===2) {
+      alert('Unable to create Password using your input - Password Length must be a valid number between 10 and 64');
+      optionsValid = false;
+      passwordLength = false;
+  } else {
+  
+  specialChar = confirm('Click OK to confirm including special characters');
+  passwordOptions.push(['specialChar',specialChar,specialCharacters]);
+
+  numericChar = confirm('Click OK to confirm including numeric characters');
+  passwordOptions.push(['numericChar',numericChar, numericCharacters]);
+
+  lowerChar = confirm('Click OK to confirm including lowercase characters');
+  passwordOptions.push(['lowerChar',lowerChar,lowerCasedCharacters]);
+
+  upperChar = confirm('Click OK to confirm including uppercase characters');
+  passwordOptions.push(['upperChar',upperChar,upperCasedCharacters]);
+
+  //validate that at least one password character option has been selected
+
+  if (specialChar || numericChar || lowerChar || upperChar) {
+      optionsValid = true;
+  } else {
+      alert('No valid options selected - You must select at least one character type \nPlease try again');
+      optionsValid = false;
+  }
+  
+}
 
 }
 
