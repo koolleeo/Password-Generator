@@ -184,6 +184,32 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
 
+    //get password options
+
+    getPasswordOptions();
+
+    //exit script if no valid password options selected, and set password to empty string (to enable default text and avoid undefined)
+
+    if (optionsValid===false) {
+        password = '';
+        return password;
+    } else {
+
+    //clear array before each execution
+    characterArray = [];
+
+    //iterate through array. If option true, push all elements of array into characterarray
+        passwordOptions.forEach((element) => {
+           if(element[1]) {
+            for (let i=0; i < element[2].length; i++) {
+                characterArray.push(element[2][i]);
+             }
+           }
+        })
+
+
+    }
+
 }
 
 // Get references to the #generate element
