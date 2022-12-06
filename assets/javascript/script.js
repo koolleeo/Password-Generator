@@ -88,8 +88,51 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+
+
+//define global variables
+
+let optionsValid = false;
+let passwordLength = null;
+let passwordOptions = [];
+let characterArray = [];
+
 // Function to prompt user for password options
+
 function getPasswordOptions() {
+
+  let specialChar;
+  let numericChar;
+  let lowerChar;
+  let upperChar;
+  let attempts = 0;
+  let defaultText = 'Enter a password length, between 10 and 64';
+  passwordOptions = [];
+  
+  //prompt user to enter number of characters that they want the password to contain
+
+  passwordLength = prompt('How many characters would you like your password to contain?',defaultText);
+
+  //if the user presses cancel, exit the script.
+
+  if (passwordLength===null) {
+      return;
+  }
+
+  //if the user enters invalid characters or password length, prompt the user 2 more times. Exit script if cancels prompt 
+
+  while ((isNaN(passwordLength) === true || passwordLength < 10 || passwordLength > 64) && attempts < 2)  {
+      
+      alert('Password Length must be a valid number between 10 and 64');
+      passwordLength = prompt('How many characters would you like your password to contain?',defaultText);
+
+      if (passwordLength===null) {
+          return;
+      }
+
+      attempts++;
+  } 
+ 
 
 }
 
